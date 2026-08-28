@@ -1,196 +1,289 @@
 # Awesome AI Literature Curation Bias
 
-A curated collection of research papers, datasets, tools, implementations, and learning resources on **recall bias toward highly-cited and English-language papers in AI literature curation** — the systematic under-retrieval of relevant but less-cited, less-visible, or non-English AI research by search engines, scholarly recommenders, citation-graph tools, and LLM-assisted screening systems.
+A curated collection of research papers, datasets, tools, implementations, and learning resources related to **recall bias toward highly-cited and English-language papers in AI literature curation**.
 
-This repository accompanies an original research paper that develops the concept of "recall bias" as a testable framework for auditing AI-assisted literature discovery pipelines. It brings together the surrounding literature on citation bias, cumulative advantage, language bias, bibliographic database coverage, scholarly recommender-system bias, and automated screening, and organizes practical tools and datasets researchers can use to study or mitigate the problem.
+This repository is based on the same topic used in my AI-assisted research paper and citation-integrity audit. It brings together research and practical resources related to citation bias, language bias, scholarly search and recommendation, automated literature screening, and AI-assisted research discovery.
 
 ## Contents
 
-- [Overview](#overview)
-- [AI-Assisted Research Paper](#ai-assisted-research-paper)
-- [Citation Integrity Audit](#citation-integrity-audit)
-- [Survey and Review Papers](#survey-and-review-papers)
-- [Foundational Papers](#foundational-papers)
-- [Recent Research Papers](#recent-research-papers)
-- [Methods / Algorithms](#methods--algorithms)
-- [Applications](#applications)
-- [Evaluation Methods / Benchmarks](#evaluation-methods--benchmarks)
-- [Datasets](#datasets)
-- [Tools and Libraries](#tools-and-libraries)
-- [GitHub Implementations](#github-implementations)
-- [Tutorials and Learning Resources](#tutorials-and-learning-resources)
-- [License](#license)
+* [Topic Overview](#topic-overview)
+* [AI-Assisted Research Paper](#ai-assisted-research-paper)
+* [Citation Integrity Audit](#citation-integrity-audit)
+* [Survey and Review Papers](#survey-and-review-papers)
+* [Foundational Papers](#foundational-papers)
+* [Recent Research Papers](#recent-research-papers)
+* [Methods and Algorithms](#methods-and-algorithms)
+* [Applications](#applications)
+* [Evaluation Methods and Benchmarks](#evaluation-methods-and-benchmarks)
+* [Datasets](#datasets)
+* [Tools and Libraries](#tools-and-libraries)
+* [GitHub Implementations](#github-implementations)
+* [Tutorials and Learning Resources](#tutorials-and-learning-resources)
+* [License](#license)
 
-## Overview
+## Topic Overview
 
-AI research is increasingly discovered and filtered through search engines, citation graphs, scholarly recommender systems, and large language models rather than exhaustive manual search. These systems reduce the cost of navigating an exploding literature, but they can also reshape *which* papers become visible to reviewers, survey authors, and benchmark designers. This repository is organized around the concept of **recall bias**: a systematic gap in the probability that an otherwise-relevant paper is retrieved, ranked, screened, or retained, as a function of its citation prominence or publication language.
+AI-based systems are increasingly being used to find, rank, recommend, and screen research papers. Search engines, citation networks, scholarly recommendation systems, and large language models can make literature discovery much faster, but the way these systems select and rank papers can affect which research becomes visible.
 
-Two mechanisms are central. First, citation-based ranking and recommendation can reproduce cumulative advantage (the "Matthew effect"), so already-prominent papers keep gaining visibility while less-cited work stays buried even when it is substantively relevant. Second, English-language dominance in indexing, metadata, and retrieval infrastructure can systematically under-expose non-English scholarship, regardless of its quality.
+This repository focuses on **recall bias in AI literature curation**, particularly the possibility that highly-cited papers and papers published in English receive greater visibility than relevant papers with fewer citations or papers published in other languages.
 
-The problem spans the full curation pipeline — indexing, candidate generation, ranking, screening, citation chaining, retention, and synthesis — and bias can enter at any stage. This collection gathers the empirical and methodological literature behind each stage, along with datasets, APIs, and open-source tools (citation graphs, active-learning screening systems, retrieval benchmarks) that researchers can use to measure, audit, or mitigate recall bias in their own AI-assisted review or discovery workflows.
+Citation counts are not always a direct measure of research quality. Citation patterns can be affected by factors such as popularity, previous recognition, publication venue, language, and accessibility. Similarly, literature databases and retrieval systems may differ in their coverage of papers from different languages and sources.
+
+The research collected here covers these issues from several perspectives, including citation bias, cumulative advantage, scholarly recommender systems, language and publishing bias, citation searching, automated screening, retrieval evaluation, and AI-assisted literature reviews.
+
+The aim of this repository is to provide a useful starting point for understanding the problem and for finding datasets, tools, implementations, and research methods that can be used to study it.
 
 ## AI-Assisted Research Paper
 
-**Recall Bias Toward Highly-Cited and English-Language Papers in AI Literature Curation**
+### Recall Bias Toward Highly-Cited and English-Language Papers in AI Literature Curation
 
-This paper develops recall bias as a concept connecting citation bias, cumulative advantage, language bias, bibliographic database coverage, scholarly recommender-system bias, and automated literature screening. It proposes a framework for measuring group-conditional recall (recall stratified by citation percentile and publication language), reviews current human-AI and citation-network curation approaches, identifies methodological challenges — including the lack of a known relevant-paper denominator and the endogeneity of citation counts — and outlines future directions such as multilingual retrieval, popularity-blind re-ranking, citation-stratified evaluation, temporal audits, and transparent human-in-the-loop reporting.
+This is the original AI-assisted research paper prepared for the assigned research topic.
 
-[View Paper](paper/AI_Assisted_Research_Paper.pdf)
+The paper discusses recall bias in literature curation and connects it with citation bias, cumulative advantage, language bias, bibliographic database coverage, scholarly recommender systems, citation searching, and automated literature screening.
+
+[View the AI-Assisted Research Paper](paper/AI_Assisted_Research_Paper.pdf)
 
 ## Citation Integrity Audit
 
-Every reference cited in the AI-Assisted Research Paper above was checked against its original source to confirm that it exists, is attributed to the correct authors and venue, and is characterized accurately (i.e., the paper's claims match what the cited source actually reports). The audit log documents each reference, its verification status, and any corrections made during drafting.
+The references in the AI-generated research paper were checked as part of the **AI-Assisted Citation Integrity Audit**.
 
-[View Audit](citation-audit/Citation_Integrity_Audit.pdf)
+The original paper contained **23 references**. Following the laboratory sampling procedure, 10 references were selected for detailed verification.
+
+The audit checked whether the publications existed and whether their titles, authors, publication years, venues, and identifiers matched the scholarly records.
+
+### Audit Results
+
+| Classification          | Number |
+| ----------------------- | -----: |
+| A — Verified            |      8 |
+| B — Wrong Metadata      |      2 |
+| C — Frankenstein        |      0 |
+| D — Fabricated          |      0 |
+| E — Identifier Mismatch |      0 |
+| **Total Audited**       | **10** |
+
+The resulting **Authenticity Score was 95/100**, and the **Prediction Accuracy was 70%**.
+
+The audit showed that a citation can appear genuine and still contain incorrect bibliographic information. Two of the audited references were genuine publications but had an incorrect publication year in the AI-generated reference.
+
+[View Citation Integrity Audit](citation-audit/Citation_Integrity_Audit.pdf)
 
 ## Survey and Review Papers
 
-- **Biases in Scholarly Recommender Systems: Impact, Prevalence, and Mitigation**
-  Färber, M., Coutinho, M., & Yuan, S., 2023, *Scientometrics*
+This section contains review and survey papers that provide background on citation recommendation, scholarly recommender systems, popularity bias, and citation patterns.
+
+* **Biases in Scholarly Recommender Systems: Impact, Prevalence, and Mitigation**
+  Färber, M., Coutinho, M., & Yuan, S., 2023, *Scientometrics*.
   [Paper / DOI](https://doi.org/10.1007/s11192-023-04636-2)
-  Classifies popularity bias, selection bias, conformity effects, and Matthew effects in academic recommender systems — the direct scholarly-recommender analogue of the recall bias this repository is about.
+  Reviews different forms of bias in scholarly recommender systems, including popularity and selection effects.
 
-- **Citation Recommendation: Approaches and Datasets**
-  Färber, M., & Jatowt, A., 2020, *International Journal on Digital Libraries*
+* **Citation Recommendation: Approaches and Datasets**
+  Färber, M. & Jatowt, A., 2020, *International Journal on Digital Libraries*.
   [Paper / DOI](https://doi.org/10.1007/s00799-020-00288-2)
-  Surveys citation-recommendation methods and datasets, providing the technical background for how citation-based ranking signals are built and where popularity can enter.
+  Surveys citation recommendation approaches and the datasets used to develop them.
 
-- **A Survey on Popularity Bias in Recommender Systems**
-  Klimashevskaia, A., Jannach, D., Elahi, M., & Trattner, C., 2024, *User Modeling and User-Adapted Interaction*
+* **A Survey on Popularity Bias in Recommender Systems**
+  Klimashevskaia, A., Jannach, D., Elahi, M., & Trattner, C., 2024, *User Modeling and User-Adapted Interaction*.
   [Paper / DOI](https://doi.org/10.1007/s11257-024-09406-0)
-  General recommender-systems survey showing popular items are systematically overexposed relative to long-tail items — the mechanism this repo's paper applies to scholarly search.
+  Provides background on popularity bias and the tendency of recommendation systems to favor already-popular items.
 
-- **Predictors of Citation Rates and the Problem of Citation Bias: A Scoping Review**
-  Lund, H., et al., 2025, *Journal of Clinical Epidemiology*
+* **Predictors of Citation Rates and the Problem of Citation Bias: A Scoping Review**
+  Lund, H., et al., 2025, *Journal of Clinical Epidemiology*.
   [Paper / DOI](https://doi.org/10.1016/j.jclinepi.2025.112057)
-  Scoping review of 165 studies and 54 predictors of citation rate, showing many predictors are unrelated to scientific quality — key evidence that citation count is a biased relevance proxy.
+  Examines factors associated with citation rates and the problem of treating citations as a simple measure of research quality.
 
 ## Foundational Papers
 
-- **The Matthew Effect in Science**
-  Merton, R. K., 1968, *Science*
+* **The Matthew Effect in Science**
+  Merton, R. K., 1968, *Science*.
   [Paper / DOI](https://doi.org/10.1126/science.159.3810.56)
-  The founding statement of cumulative advantage in scientific recognition — the theoretical basis for citation-driven recall bias.
+  Introduces the Matthew effect and the idea of cumulative advantage in scientific recognition.
 
-- **The Matthew Effect in Science, II: Cumulative Advantage and the Symbolism of Intellectual Property**
-  Merton, R. K., 1988, *Isis*
+* **The Matthew Effect in Science, II: Cumulative Advantage and the Symbolism of Intellectual Property**
+  Merton, R. K., 1988, *Isis*.
   [Paper / DOI](https://doi.org/10.1086/354848)
-  Extends the Matthew effect concept to intellectual property and resource accumulation in science.
+  Further develops the concept of cumulative advantage in science.
 
-- **Collaborative Topic Modeling for Recommending Scientific Articles**
-  Wang, C., & Blei, D. M., 2011, ACM SIGKDD
+* **Collaborative Topic Modeling for Recommending Scientific Articles**
+  Wang, C. & Blei, D. M., 2011, ACM SIGKDD.
   [Paper / DOI](https://doi.org/10.1145/2020408.2020480)
-  Foundational scholarly recommender system paper that explicitly notes citation-following is effective but biased toward heavily-cited work.
+  Provides a foundation for recommendation of scientific articles using topic information.
 
-- **Introduction: Hegemonic Languages and Science**
-  Gordin, M. D., 2017, *Isis*
+* **Introduction: Hegemonic Languages and Science**
+  Gordin, M. D., 2017, *Isis*.
   [Paper / DOI](https://doi.org/10.1086/694164)
-  Historical account of how English became the dominant language of international science, framing the language-bias half of the paper's argument.
+  Discusses the historical development of English as a dominant language in international science.
 
-- **Scientific Citations Favor Positive Results: A Systematic Review and Meta-Analysis**
-  Duyx, B., Urlings, M. J. E., Swaen, G. M. H., Bouter, L. M., & Zeegers, M. P., 2017, *Journal of Clinical Epidemiology*
+* **Scientific Citations Favor Positive Results: A Systematic Review and Meta-Analysis**
+  Duyx, B., Urlings, M. J. E., Swaen, G. M. H., Bouter, L. M., & Zeegers, M. P., 2017, *Journal of Clinical Epidemiology*.
   [Paper / DOI](https://doi.org/10.1016/j.jclinepi.2017.06.002)
-  Meta-analysis of 52 studies showing statistically significant results are cited ~1.6x more often, establishing citation count as content-biased rather than a neutral quality signal.
+  Examines evidence that positive research findings receive more citations.
 
 ## Recent Research Papers
 
-- **Comparing Supervised Machine Learning and Large Language Models in Title-Abstract Screening**
-  Aigner, M. F., Ganzinger, M., Probst, P., Rinckens, M., & Pausch, T. M., 2026, *Systematic Reviews*
+* **Comparing Supervised Machine Learning and Large Language Models in Title-Abstract Screening**
+  Aigner, M. F., Ganzinger, M., Probst, P., Rinckens, M., & Pausch, T. M., 2026, *Systematic Reviews*.
   [Paper / DOI](https://doi.org/10.1186/s13643-026-03199-6)
-  Directly compares LLM and supervised-ML recall on title/abstract screening, showing recall varies substantially by dataset.
+  Compares machine-learning and large-language-model approaches for title and abstract screening.
 
-- **The Use of Generative Artificial Intelligence in Systematic Literature Reviews: A Rapid Review**
-  Fleurence, R. L., Qureshi, R., Aggarwal, R., et al., 2026, *Value in Health*
+* **The Use of Generative Artificial Intelligence in Systematic Literature Reviews: A Rapid Review**
+  Fleurence, R. L., Qureshi, R., Aggarwal, R., et al., 2026, *Value in Health*.
   [Paper / DOI](https://doi.org/10.1016/j.jval.2026.06.012)
-  2026 rapid review of GenAI across systematic-review tasks, finding strong evidence for screening/extraction but caution against fully autonomous review generation.
+  Reviews the use of generative AI in different stages of systematic literature reviews.
 
-- **Automated Citation Searching in Systematic Review Production: A Simulation Study**
-  Rajit, D., Du, L., Teede, H., & Enticott, J., 2025, *Research Synthesis Methods*
+* **Automated Citation Searching in Systematic Review Production: A Simulation Study**
+  Rajit, D., Du, L., Teede, H., & Enticott, J., 2025, *Research Synthesis Methods*.
   [Paper / DOI](https://doi.org/10.1017/rsm.2024.15)
-  Simulates automated citation searching via OpenAlex and Semantic Scholar across 27 reviews, finding higher precision but significantly lower recall than manual searching.
+  Investigates automated citation searching and compares its retrieval characteristics with manual searching.
 
-## Methods / Algorithms
+## Methods and Algorithms
 
-- **ASReview: Active Learning for Systematic Reviews**
-  Van de Schoot, R., de Bruin, J., Schram, R., et al., 2021, Zenodo
+* **ASReview: Active Learning for Systematic Reviews**
+  Van de Schoot, R., de Bruin, J., Schram, R., et al., 2021.
   [Paper / DOI](https://doi.org/10.5281/zenodo.5126631)
-  Open-source active-learning screening tool; illustrates how early-labeled examples can bias which papers a system learns to prioritize.
+  Provides an active-learning approach for prioritizing references during systematic review screening.
 
-- **Prioritising References for Systematic Reviews with RobotAnalyst: A User Study**
-  Przybyła, P., Brockmeier, A. J., Kontonatsios, G., et al., 2018, *Research Synthesis Methods*
+* **Prioritising References for Systematic Reviews with RobotAnalyst: A User Study**
+  Przybyła, P., Brockmeier, A. J., Kontonatsios, G., et al., 2018, *Research Synthesis Methods*.
   [Paper / DOI](https://doi.org/10.1002/jrsm.1311)
-  Evaluates active-prioritization screening across 22 reference collections, showing large workload reduction alongside the need for stopping criteria.
+  Studies automated prioritization of references to reduce screening workload.
 
-- **Guidance on Terminology, Application, and Reporting of Citation Searching: The TARCiS Statement**
-  Hirt, J., et al., 2024, *BMJ*
+* **Guidance on Terminology, Application, and Reporting of Citation Searching: The TARCiS Statement**
+  Hirt, J., et al., 2024, *BMJ*.
   [Paper / DOI](https://doi.org/10.1136/bmj-2023-078384)
-  Methodological standard for reporting citation-searching practice, used in this repo's paper to argue for transparent retrieval provenance.
+  Provides guidance for conducting and reporting citation searching.
 
-- **Citation Searching: A Systematic Review Case Study of Multiple Risk Behaviour Interventions**
-  Wright, K., Golder, S., & Rodriguez-López, R., 2014, *BMC Medical Research Methodology*
+* **Citation Searching: A Systematic Review Case Study of Multiple Risk Behaviour Interventions**
+  Wright, K., Golder, S., & Rodriguez-López, R., 2014, *BMC Medical Research Methodology*.
   [Paper / DOI](https://doi.org/10.1186/1471-2288-14-73)
-  Case study showing citation tracking across multiple databases recovers materially different result sets, demonstrating database-dependent coverage.
+  Shows how citation searching can produce additional and different literature from database searching.
 
 ## Applications
 
-- **Preliminary Evidence of Linguistic Bias in Academic Reviewing**
-  Politzer-Ahles, S., Girolamo, T., & Ghali, S., 2020, *Journal of English for Academic Purposes*
+* **Preliminary Evidence of Linguistic Bias in Academic Reviewing**
+  Politzer-Ahles, S., Girolamo, T., & Ghali, S., 2020, *Journal of English for Academic Purposes*.
   [Paper / DOI](https://doi.org/10.1016/j.jeap.2020.100895)
-  Experimental evidence that less "native-like" academic English can lower quality ratings on otherwise-identical abstracts.
+  Investigates the effect of linguistic features on academic evaluation.
 
-- **Publishing in English or Another Language: An Inclusive Study of Scholars' Language Publication Preferences**
-  Stockemer, D., & Wigginton, M. J., 2019, *Scientometrics*
+* **Publishing in English or Another Language: An Inclusive Study of Scholars' Language Publication Preferences**
+  Stockemer, D. & Wigginton, M. J., 2019, *Scientometrics*.
   [Paper / DOI](https://doi.org/10.1007/s11192-018-2987-0)
-  Survey of 800+ authors finding non-Anglophone researchers publish the large majority of manuscripts in English, driven by perceived visibility gains.
+  Examines researchers' publication-language preferences and the perceived visibility advantages of English.
 
-- **Textual Analysis of Artificial Intelligence Manuscripts Reveals Features Associated with Peer Review Outcome**
-  Vincent-Lamarre, P., & Larivière, V., 2021, *Quantitative Science Studies*
+* **Textual Analysis of Artificial Intelligence Manuscripts Reveals Features Associated with Peer Review Outcome**
+  Vincent-Lamarre, P. & Larivière, V., 2021, *Quantitative Science Studies*.
   [Paper / DOI](https://doi.org/10.1162/qss_a_00125)
-  Analyzes 12,000+ AI manuscript submissions, finding linguistic and topical features correlated with acceptance and citation patterns.
+  Studies textual characteristics of AI manuscripts and their relationship with peer-review outcomes.
 
-## Evaluation Methods / Benchmarks
+## Evaluation Methods and Benchmarks
 
-- **Google Scholar, Web of Science, and Scopus: A Systematic Comparison of Citations in 252 Subject Categories**
-  Martín-Martín, A., Orduna-Malea, E., Thelwall, M., & Delgado López-Cózar, E., 2018, arXiv
-  [Paper / DOI](https://arxiv.org/abs/1808.05053)
-  Large-scale comparison of database coverage, showing Google Scholar captures substantial non-English and non-journal material absent from WoS/Scopus.
+* **Google Scholar, Web of Science, and Scopus: A Systematic Comparison of Citations in 252 Subject Categories**
+  Martín-Martín, A., Orduna-Malea, E., Thelwall, M., & Delgado López-Cózar, E., 2018.
+  [Paper](https://arxiv.org/abs/1808.05053)
+  Compares major scholarly databases and their coverage of research publications and citations.
 
-- **The Effect of English-Language Restriction on Systematic Review-Based Meta-Analyses**
-  Morrison, A., Polisena, J., Husereau, D., et al., 2012, *International Journal of Technology Assessment in Health Care*
+* **The Effect of English-Language Restriction on Systematic Review-Based Meta-Analyses**
+  Morrison, A., Polisena, J., Husereau, D., et al., 2012, *International Journal of Technology Assessment in Health Care*.
   [Paper / DOI](https://doi.org/10.1017/S0266462312000086)
-  Systematic review finding language restriction doesn't always change pooled conclusions, but does reduce precision — evidence that language can't be assumed to be a safe proxy for relevance.
+  Examines the effect of restricting systematic reviews to English-language studies.
 
-- **Conduct and Reporting of Citation Searching in Cochrane Systematic Reviews: A Cross-Sectional Study**
-  Briscoe, S., Bethel, A., Rogers, M., et al., 2020, *Research Synthesis Methods*
+* **Conduct and Reporting of Citation Searching in Cochrane Systematic Reviews: A Cross-Sectional Study**
+  Briscoe, S., Bethel, A., Rogers, M., et al., 2020, *Research Synthesis Methods*.
   [Paper / DOI](https://doi.org/10.1002/jrsm.1355)
-  Cross-sectional audit of how citation searching is actually conducted and reported in practice, exposing inconsistent methodology across reviews.
+  Examines how citation searching is conducted and reported in systematic reviews.
 
 ## Datasets
 
-- **OpenAlex** — Open, comprehensive catalog of scholarly works, authors, venues, and citation links; used in this repo's paper as a source for automated citation-searching simulations. [openalex.org](https://openalex.org/)
-- **Semantic Scholar Academic Graph (S2AG) / S2ORC** — Large open corpus of papers with full text, citation graphs, and embeddings, widely used for citation-recommendation and retrieval research. [api.semanticscholar.org](https://api.semanticscholar.org/)
-- **CORE** — Aggregates open-access research outputs from repositories worldwide, including substantial non-English and regionally-indexed content useful for language-bias studies. [core.ac.uk](https://core.ac.uk/)
+The datasets used in this repository are sources that can provide scholarly metadata, papers, or citation information relevant to studying literature discovery and citation patterns.
+
+* **OpenAlex** — An open scholarly data source containing works, authors, venues, concepts, and citation relationships. It can be used for analysing citation patterns and constructing literature datasets.
+  [OpenAlex](https://openalex.org/)
+
+* **Semantic Scholar Academic Graph / S2ORC** — Provides scholarly information including papers, references, citations, and related research data. It is useful for citation-network and literature-retrieval research.
+  [Semantic Scholar](https://www.semanticscholar.org/)
+
+* **CORE** — A large collection of open-access research outputs gathered from repositories and other sources. Its broad coverage can be useful when studying research visibility and literature retrieval.
+  [CORE](https://core.ac.uk/)
+
+[More details about the datasets](datasets/datasets.md)
 
 ## Tools and Libraries
 
-- **ASReview** — Open-source active-learning tool for systematic review screening; a practical example of a system where seed-label composition can shape which papers get prioritized. [asreview.ai](https://asreview.ai/)
-- **OpenAlex API** — Programmatic access to works, citations, and concepts for building custom retrieval or citation-stratified sampling pipelines. [docs.openalex.org](https://docs.openalex.org/)
-- **Semantic Scholar API** — REST API for paper search, citation graphs, and embeddings, usable for building popularity-blind or citation-stratified re-ranking experiments. [api.semanticscholar.org](https://api.semanticscholar.org/)
-- **Connected Papers** — Visualizes citation networks as a graph, useful for inspecting whether citation-chaining seeds are producing a representative neighborhood. [connectedpapers.com](https://www.connectedpapers.com/)
+* **ASReview** — An open-source tool for active-learning based literature screening. It is useful for studying automated prioritization during systematic reviews.
+  [ASReview](https://asreview.ai/)
+
+* **OpenAlex API** — Provides programmatic access to scholarly works, authors, concepts, and citation information.
+  [OpenAlex API Documentation](https://docs.openalex.org/)
+
+* **Semantic Scholar API** — Provides access to scholarly papers, citations, authors, and related information for literature-retrieval applications.
+  [Semantic Scholar API](https://api.semanticscholar.org/)
+
+* **Connected Papers** — A visual tool for exploring relationships between research papers and related literature.
+  [Connected Papers](https://www.connectedpapers.com/)
+
+[More details about the tools](tools/tools.md)
 
 ## GitHub Implementations
 
-- **asreview/asreview** — Source code for the ASReview active-learning screening tool referenced above. [github.com/asreview/asreview](https://github.com/asreview/asreview)
-- **allenai/s2orc** — Tools and documentation for the Semantic Scholar Open Research Corpus. [github.com/allenai/s2orc](https://github.com/allenai/s2orc)
-- **ourresearch/openalex-guts** — Backend/reference implementation details for the OpenAlex catalog. [github.com/ourresearch/openalex-guts](https://github.com/ourresearch/openalex-guts)
+The following open-source projects provide implementations or resources related to literature screening, scholarly data, and citation-based research.
+
+* **asreview/asreview** — Source code for the ASReview active-learning screening system.
+  [GitHub Repository](https://github.com/asreview/asreview)
+
+* **allenai/s2orc** — Resources and tools associated with the Semantic Scholar Open Research Corpus.
+  [GitHub Repository](https://github.com/allenai/s2orc)
+
+* **ourresearch/openalex-guts** — Open-source components associated with the OpenAlex scholarly-data infrastructure.
+  [GitHub Repository](https://github.com/ourresearch/openalex-guts)
+
+[More details about the implementations](implementations/github-repositories.md)
 
 ## Tutorials and Learning Resources
 
-- **OpenAlex API Documentation** — Official guide to querying works, authors, and citation data. [docs.openalex.org](https://docs.openalex.org/)
-- **Semantic Scholar API Documentation** — Official reference for paper search, citation, and recommendation endpoints. [api.semanticscholar.org/api-docs](https://api.semanticscholar.org/api-docs/)
-- **ASReview Documentation** — Tutorials on setting up active-learning screening projects and interpreting active-learning behavior. [asreview.readthedocs.io](https://asreview.readthedocs.io/)
-- **TARCiS Statement (Hirt et al., 2024)** — Practical guidance on terminology and reporting for citation searching, directly usable as a checklist. [doi.org/10.1136/bmj-2023-078384](https://doi.org/10.1136/bmj-2023-078384)
+* **OpenAlex API Documentation** — Documentation for querying scholarly works, authors, concepts, and citation information.
+  [OpenAlex Documentation](https://docs.openalex.org/)
+
+* **Semantic Scholar API Documentation** — Documentation for accessing papers and citation information through the Semantic Scholar API.
+  [Semantic Scholar API Documentation](https://api.semanticscholar.org/api-docs/)
+
+* **ASReview Documentation** — Documentation and tutorials for using active learning in systematic literature screening.
+  [ASReview Documentation](https://asreview.readthedocs.io/)
+
+* **TARCiS Statement** — Guidance for citation searching terminology, application, and reporting.
+  [TARCiS / BMJ](https://doi.org/10.1136/bmj-2023-078384)
+
+* **Semantic Scholar** — Scholarly search and discovery platform that can be used to explore papers, citations, and related research.
+  [Semantic Scholar](https://www.semanticscholar.org/)
+
+## Repository Structure
+
+```text
+awesome-ai-literature-recall-bias/
+│
+├── README.md
+├── LICENSE
+│
+├── paper/
+│   └── AI_Assisted_Research_Paper.pdf
+│
+├── citation-audit/
+│   └── Citation_Integrity_Audit.pdf
+│
+├── references/
+│   └── references.md
+│
+├── datasets/
+│   └── datasets.md
+│
+├── tools/
+│   └── tools.md
+│
+└── implementations/
+    └── github-repositories.md
+```
 
 ## License
 
-This repository's original content (README, research paper, and citation integrity audit) is released under the MIT License unless otherwise noted. Linked third-party papers, datasets, and tools remain the property of their respective authors and publishers and are subject to their own licenses and terms of use.
+This repository's original content is released under the MIT License unless otherwise stated.
+
+The research papers, datasets, tools, and external repositories linked here belong to their respective authors or organizations and are subject to their own licenses and terms of use.
