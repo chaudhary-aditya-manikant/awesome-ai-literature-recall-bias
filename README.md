@@ -264,7 +264,7 @@ awesome-ai-literature-recall-bias/
 ├── LICENSE
 │
 ├── paper/
-│   └── AI_Assisted_Research_Paper.pdf
+│   └── Recall Bias Toward Highly-Cited and English-Language Papers in AI Literature Curation.pdf
 │
 ├── citation-audit/
 │   └── Citation_Integrity_Audit.pdf
