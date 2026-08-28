@@ -41,7 +41,7 @@ This is the original AI-assisted research paper prepared for the assigned resear
 
 The paper discusses recall bias in literature curation and connects it with citation bias, cumulative advantage, language bias, bibliographic database coverage, scholarly recommender systems, citation searching, and automated literature screening.
 
-[View the AI-Assisted Research Paper](paper/AI_Assisted_Research_Paper.pdf)
+[View the AI-Assisted Research Paper](paper/Recall%20Bias%20Toward%20Highly-Cited%20and%20English-Language%20Papers%20in%20AI%20Literature%20Curation.pdf)
 
 ## Citation Integrity Audit
 
@@ -202,8 +202,7 @@ The datasets used in this repository are sources that can provide scholarly meta
 * **Semantic Scholar Academic Graph / S2ORC** — Provides scholarly information including papers, references, citations, and related research data. It is useful for citation-network and literature-retrieval research.
   [Semantic Scholar](https://www.semanticscholar.org/)
 
-* **CORE** — A large collection of open-access research outputs gathered from repositories and other sources. Its broad coverage can be useful when studying research visibility and literature retrieval.
-  [CORE](https://core.ac.uk/)
+* **SYNERGY Dataset** — A dataset for studying systematic-review screening and active learning. [SYNERGY Dataset](https://github.com/asreview/synergy-dataset)
 
 [More details about the datasets](datasets/datasets.md)
 
@@ -218,8 +217,11 @@ The datasets used in this repository are sources that can provide scholarly meta
 * **Semantic Scholar API** — Provides access to scholarly papers, citations, authors, and related information for literature-retrieval applications.
   [Semantic Scholar API](https://api.semanticscholar.org/)
 
-* **Connected Papers** — A visual tool for exploring relationships between research papers and related literature.
-  [Connected Papers](https://www.connectedpapers.com/)
+* **Google Scholar** — A general academic search engine, useful for comparing how different scholarly search systems discover papers.
+  [Google Scholar](https://scholar.google.com/)
+
+* **VOSviewer** — Software for creating and visualising bibliographic networks, including citation, co-authorship, and keyword relationships.
+  [VOSviewer](https://www.vosviewer.com/)
 
 [More details about the tools](tools/tools.md)
 
@@ -233,8 +235,14 @@ The following open-source projects provide implementations or resources related 
 * **allenai/s2orc** — Resources and tools associated with the Semantic Scholar Open Research Corpus.
   [GitHub Repository](https://github.com/allenai/s2orc)
 
-* **ourresearch/openalex-guts** — Open-source components associated with the OpenAlex scholarly-data infrastructure.
-  [GitHub Repository](https://github.com/ourresearch/openalex-guts)
+* **ourresearch/openalex-api-tutorials** — Examples for working with OpenAlex data and citation patterns.
+  [GitHub Repository](https://github.com/ourresearch/openalex-api-tutorials)
+
+* **ConnectedPapers/connectedpapers-py** — A Python client for the Connected Papers service, used to explore related research papers and citation-based connections.
+  [GitHub Repository](https://github.com/ConnectedPapers/connectedpapers-py)
+
+* **allenai/s2-api** — Programmatic access to Semantic Scholar's papers, authors, citations, and references.
+  [GitHub Repository](https://github.com/allenai/s2-api)
 
 [More details about the implementations](implementations/github-repositories.md)
 
